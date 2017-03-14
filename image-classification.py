@@ -14,20 +14,6 @@ if isfile(floyd_cifar10_location):
 else:
     tar_gz_path = 'cifar-10-python.tar.gz'
 
-if not isfile(tar_gz_path):
-    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='CIFAR-10 Dataset') as pbar:
-        urlretrieve(
-            'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz',
-            tar_gz_path,
-            pbar.hook)
-
-if not isdir(cifar10_dataset_folder_path):
-    with tarfile.open(tar_gz_path) as tar:
-        tar.extractall()
-        tar.close()
-
-
-
 import helper
 import numpy as np
 
